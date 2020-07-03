@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ 
+ <meta charset= "utf-8"/>
+<title>Fortune </title>
+ <link rel="stylesheet" href="fort.css">
+ 
+ 
+ 
+
+<script language="JavaScript">
+
+
+
+var SIZE= 10
+var fortuness = new Array(SIZE) 
+fortuness[0]="THINK WISE.";
+fortuness[1]="DON'T HURRY.";
+fortuness[2]="BE PATIENT.";
+fortuness[3]="BE CALM AND QUITE.";
+fortuness[4]="DON'T BE LAZY.";
+fortuness[5]="HELP OTHER.";
+fortuness[6]="GET LOST.";
+fortuness[7]="DO JUSTICE.";
+fortuness[8]="DON'T LIE.";
+fortuness[8]="SPEAK THE TRUTH.";
+fortuness[9]="LOVE YOUR PARENTS.";
+
+
+function RandomInt(low, high) 
+ 
+{ 
+  return Math.floor(Math.random()*(high-low+1)) + low; 
+}  
+
+
+
+function fortune() {
+var Q_number = RandomInt(0,SIZE-1);  
+document.write(fortuness[Q_number]); 
+}
+</script>
+ 
+ 
+ 
+ </head>
+ <body id="big">
+ <div align="center"> 
+ <table width="100%" border="1" id="tb">
+    <tbody>
+	<tr>
+      <td align="center">
+	  <small>
+	  <i>
+        <script type="text/javascript">
+            fortune();
+        </script>
+      </i>
+	  </small>
+	  </td>
+    </tr>
+</tbody>
+</table>
+ 
+ 
+ 
+ </div>
+ 
+ </body>
+ 
+ </html>

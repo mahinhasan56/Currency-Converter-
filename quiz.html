@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+ <head>
+ <meta charset= "utf-8"/>
+<title>  Quiz</title>
+ <link rel="stylesheet" href="QZ.css">
+ <script language="JavaScript">
+
+function Random_Int(low, high)
+
+{ 
+  return Math.floor(Math.random()*(high-low+1)) + low; 
+}  
+
+
+var question = new Array; 
+var yes_answer = new Array;
+
+question[0]= new Array("What is the capital of Singapur?", 
+                  "A. Manila",
+                  "B. Kualalampur", 
+                  "C. Singapur" ); 
+
+yes_answer[0] =  "3"; 
+
+
+
+
+question[1]= new Array("Who is the author of gulliver's travels?",
+	     "A. Stefani Mayer",
+	     "B. Jonathon Swift",
+	     "C. Daniel Defoe");
+
+yes_answer[1] =  "2";
+
+question[2]= new Array("Who got the Nobel Prize in medicine in 2015?",
+             "A. William C. Campbell",
+             "B. Dr.Alfred Rozario",
+	         "C. William Stephen");
+
+yes_answer[2] =  "1";
+
+question[3]= new Array("Who got the Nobel Prize in literature in 2015?",
+	"A. William Hanna",
+	"B. Mark toen",
+	"C. Svetlana Alexievich");
+
+yes_answer[3] =  "3";
+
+
+question[4]= new Array("What is currency of China?",
+             "A. rufiyaa",
+             "B.  real",
+             "C. Yen");
+
+yes_answer[4] =  "3";
+
+
+var QUIZ_SIZE = question.length; 
+var score = 0; 
+var current=0; 
+var question_number=0; 
+
+function Ask_Number(){ 
+
+var TEST = false;
+
+while(!TEST){
+ QUIZ_SIZE=parseInt(prompt("How many questions? From 1 to"+question.length+":","5"));
+ if ( (!isNaN(QUIZ_SIZE))&& (QUIZ_SIZE!=0) && (0<QUIZ_SIZE <= question.length)){
+   alert("You selected "+QUIZ_SIZE+" questions. Please press the button to start."); TEST=true;
+  }
+  else{
+   alert("You put a wrong number"); TEST=false;
+  }
+ }
+}
+
+
+function Start_Quiz(){// it starts quiz
+
+Ask_Number();
+current=Random_Int(0,question.length-1);
+question_number=1;
+score=0;
+
+document.user_interface.user_question.value=question[current][0];
+document.user_interface.user_answer_A.value=question[current][1];
+document.user_interface.user_answer_B.value=question[current][2];
+document.user_interface.user_answer_C.value=question[current][3];
+
+document.user_feedback.user_question_number.value=question_number;
+document.user_feedback.user_score.value=score;
+}
+
+
+function Next_Question(){
+// it asks the next question, checks if the quiz is over
+
+ question.splice(current,1);
+ yes_answer.slice(current,1);
+
+ if(question[0] == null||question_number==QUIZ_SIZE){
+  var interest=Math.round(100*(score/QUIZ_SIZE));
+  alert("You scored "+score+" out of "+QUIZ_SIZE+"  correctly .");
+ }
+ else{
+  question_number++;
+  current=Random_Int(0,question.length-1);
+
+  document.user_interface.user_question.value=question[current][0];
+  document.user_interface.user_answer_A.value=question[current][1];
+  document.user_interface.user_answer_B.value=question[current][2];
+  document.user_interface.user_answer_C.value=question[current][3];
+
+  document.user_feedback.user_question_number.value=question_number;
+  document.user_feedback.user_score.value=score;
+ }
+}
+
+
+function Handle(answer){
+
+var yes=yes_answer[current];
+
+if(answer==yes_answer[current]){
+  alert("Correct"); score++;
+  }
+ else{
+  alert("You guessed "+question[current][answer]+"\n"+"Correct: "+question[current][yes]);
+  }
+Next_Question();
+}
+</script>
+</head>
+
+
+<body onload="Start_Quiz();">
+
+<form name="user_interface">
+
+<h2>
+<textarea rows="1" cols="50" name="user_question" wrap="virtual" onfocus="this.blur()"> </textarea>
+</h2>
+
+<br>
+
+<textarea rows="1" cols="50" name="user_answer_A" wrap="virtual" onfocus="this.blur()"> </textarea> 
+&nbsp;
+<input type="button" value="A." onclick="Handle(1)">
+
+<br>
+
+<textarea rows="1" cols="50" name="user_answer_B" wrap="virtual" onfocus="this.blur()"> </textarea> 
+&nbsp;
+<input type="button" value="B." onclick="Handle(2)">
+
+<br>
+
+<textarea rows="1" cols="50" name="user_answer_C" wrap="virtual" onfocus="this.blur()"> </textarea>
+&nbsp;
+<input type="button" value="C." onclick="Handle(3)">
+
+</form>
+
+<br>
+
+<form name="user_feedback">
+
+Question Number:  <input type="text" name="user_question_number" value="" size="2" onfocus="this.blur()" ;=""> 
+&nbsp; 
+Correct Answers :  <input type="text" name="user_score" value="" size="2" onfocus="this.blur()" ;="">
+
+</form>
+
+
+
+
+</body>
+
+
+ </html>

@@ -1,0 +1,23 @@
+*{margin:0px;
+padding:0px;
+}
+header,footer,nav,aside,article{ display:block;}
+
+#big
+{
+	padding-top:50px;	
+ background-image: url("bb.png");
+  background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align:center;
+ font-size:40px;
+ color:white
+}
+#tb{
+color:white;
+font-size:40px;}

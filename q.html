@@ -1,0 +1,87 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!-- HIDE FROM INCOMPATIBLE BROWSERS
+// STOP HIDING FROM INCOMPATIBLE BROWSERS -->
+</SCRIPT>
+<HTML>
+<HEAD>
+<TITLE>Short Quiz</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- HIDE FROM INCOMPATIBLE BROWSERS
+number_questions = 3;
+answer_list = new Array(number_questions);
+answer_list[0] = "Red";
+answer_list[1] = "New York Jets";
+answer_list[2] = "Jets";
+
+
+
+
+
+
+//.... so that the loop will become:
+
+
+
+
+response = new Array(number_questions);
+function setAnswer(question, answer) {
+response[question] = answer;
+}
+function CheckAnswers() {
+var correct = 0;
+for (var i = 0; i < number_questions; i++) {
+if (response[i] == answer_list[i]) {
+correct++;
+}
+}
+alert("You got " + correct + " of "
++ number_questions + " questions correct!");
+}
+// STOP HIDING FROM INCOMPATIBLE BROWSERS -->
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR = #EEFFE8>
+<FONT FACE="Arial" SIZE=6>Short Quiz</FONT><BR>
+<HR SIZE=5 WIDTH=100%>
+<FONT FACE="Arial" SIZE=3>
+<FORM>
+<B>1.  <INPUT TYPE=text NAME=question0 size=30
+onChange="setAnswer(0, this.value)"> is my favorite color</B><P>
+<BR><P>
+<B>2. For what NFL team did Joe Namath play?</B><P>
+<INPUT TYPE=radio NAME=question1 VALUE="New York Giants"
+onClick="setAnswer(1,this.value)">New York Giants<BR>
+<INPUT TYPE=radio NAME=question1 VALUE="New England Patriots"
+onClick="setAnswer(1,this.value)">New England Patriots<BR>
+<INPUT TYPE=radio NAME=question1 VALUE="New York Jets"
+onClick="setAnswer(1,this.value)">New York Jets<BR>
+<INPUT TYPE=radio NAME=question1 VALUE="Buffalo Bills"
+onClick="setAnswer(1,this.value)">Buffalo Bills<BR><P>
+
+
+
+
+
+<B>3. what is ur name?</B><P>
+<INPUT TYPE=radio NAME=question1 VALUE="New York Giants"
+onClick="setAnswer(2,this.value)"> Giants<BR>
+<INPUT TYPE=radio NAME=question1 VALUE="New England Patriots"
+onClick="setAnswer(2,this.value)"> Patriots<BR>
+<INPUT TYPE=radio NAME=question1 VALUE="New York Jets"
+onClick="setAnswer(2,this.value)"> Jets<BR>
+<INPUT TYPE=radio NAME=question1 VALUE="Buffalo Bills"
+onClick="setAnswer(2,this.value)"> Bills<BR><P>
+
+
+
+
+
+
+</FORM>
+<FORM>
+<INPUT TYPE="button" NAME="check" VALUE="Check Answers"
+onClick=CheckAnswers()>
+</FORM>
+</FONT>
+</BODY>
+</HTML>
